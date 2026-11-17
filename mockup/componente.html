@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Depozit MCS: componente</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="mock-bar">
+    <div class="mock-bar__inner">
+      <span class="mock-bar__tag">Mockup</span>
+      <a href="index.html" class="mock-bar__link">Aplicatia</a>
+      <a href="componente.html" class="mock-bar__link mock-bar__link--active">Componente</a>
+    </div>
+  </div>
+
+  <main class="mock-gallery">
+    <h1 class="mock-gallery__title">Componente</h1>
+    <p class="mock-gallery__intro">Fiecare bucata: cum arata + HTML-ul de copiat in ProductList.tsx (class devine className, for devine htmlFor).</p>
+
+    <nav class="mock-toc">
+      <a href="#font">Fontul</a>
+      <a href="#navbar">Navbar</a>
+      <a href="#categorii">Culoarea categoriei</a>
+      <a href="#metrici">Metrici</a>
+      <a href="#butoane">Butoane</a>
+      <a href="#iconite">Iconite</a>
+      <a href="#campuri">Campuri</a>
+      <a href="#erori">Erori pe campuri</a>
+      <a href="#formular">Formular</a>
+      <a href="#chip">Chip-uri de categorie</a>
+      <a href="#toolbar">Bara de unelte</a>
+      <a href="#produs">Produs</a>
+      <a href="#scump">Produs scump</a>
+      <a href="#gol">Lista goala</a>
+      <a href="#dialog">Dialog de confirmare</a>
+      <a href="#pill-stoc">Stampile de stoc</a>
+      <a href="#qty">Cantitate</a>
+      <a href="#switch">Comutator Activ / Inactiv</a>
+      <a href="#produs-stoc">Produs cu stoc</a>
+      <a href="#inactiv">Produs inactiv</a>
+      <a href="#epuizat">Produs epuizat</a>
+      <a href="#metrici-stoc">Metrici de stoc</a>
+      <a href="#adauga">Adauga in cos</a>
+      <a href="#cos">Cos cu produse</a>
+      <a href="#reducere">Linia de reducere</a>
+      <a href="#cos-gol">Cos gol</a>
+    </nav>
+
+    <section class="mock-demo" id="font">
+      <h2 class="mock-demo__title">Fontul</h2>
+      <p class="mock-demo__text">Archivo (licenta OFL), gazduit local. In proiectul React fontul e deja in src/fonts/, langa src/index.css; @font-face de mai jos, din index.css, il gaseste acolo (url-ul e rezolvat de Vite relativ la index.css; mutat in public/, fisierul nu mai e gasit: in dev ajunge HTML in loc de font, iar npm run build da warning "didn't resolve at build time"; pagina cade pe alt font).</p>
+      <pre class="mock-code mock-code--alone">@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-latin-wdth-normal.woff2") format("woff2");
+  font-weight: 100 900;
+  font-stretch: 62% 125%;
+  font-style: normal;
+  font-display: swap;
+}</pre>
+    </section>
+
+    <h2 class="mock-part">Partea 1: Catalog</h2>
+    <section class="mock-demo" id="navbar">
+      <h3 class="mock-demo__title">Navbar</h3>
+      <p class="mock-demo__text">Bara mov de sus: sigla MCS (in React, mcs-logo.png sta in public/), numele magazinului si utilizatorul.</p>
+      <div class="mock-preview">
+        <header class="navbar">
+          <div class="navbar__inner">
+            <div class="navbar__brand">
+              <span class="navbar__logo"><img src="mcs-logo.png" alt="MyCodeSchool" width="118" height="22" /></span>
+              Depozit MCS
+            </div>
+            <div class="navbar__user">
+              <span class="navbar__email">admin@mycode.ro</span>
+              <span class="navbar__avatar">AD</span>
+            </div>
+          </div>
+        </header>
+      </div>
+      <pre class="mock-code">&lt;header class="navbar"&gt;
+  &lt;div class="navbar__inner"&gt;
+    &lt;div class="navbar__brand"&gt;
+      &lt;span class="navbar__logo"&gt;&lt;img src="mcs-logo.png" alt="MyCodeSchool" width="118" height="22" /&gt;&lt;/span&gt;
+      Depozit MCS
+    &lt;/div&gt;
+    &lt;div class="navbar__user"&gt;
+      &lt;span class="navbar__email"&gt;admin&amp;#64;mycode.ro&lt;/span&gt;
+      &lt;span class="navbar__avatar"&gt;AD&lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/header&gt;</pre>
+    </section>
+    <section class="mock-demo" id="categorii">
+      <h3 class="mock-demo__title">Culoarea categoriei</h3>
+      <p class="mock-demo__text">Un patratel colorat per categorie: in chip-ul de filtru si langa SKU.</p>
+      <div class="mock-preview">
+        <span class="swatch swatch--calculatoare"></span>
+        <span class="swatch swatch--accesorii"></span>
+        <span class="swatch swatch--bucatarie"></span>
+      </div>
+      <pre class="mock-code">&lt;span class="swatch swatch--calculatoare"&gt;&lt;/span&gt;
+&lt;span class="swatch swatch--accesorii"&gt;&lt;/span&gt;
+&lt;span class="swatch swatch--bucatarie"&gt;&lt;/span&gt;</pre>
+    </section>
+    <section class="mock-demo" id="metrici">
+      <h3 class="mock-demo__title">Metrici</h3>
+      <p class="mock-demo__text">Un singur bloc, celulele despartite de linii subtiri. Nota de sub valoare e optionala; „Pe categorie” are cate un rand pe categorie.</p>
+      <div class="mock-preview">
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric__label">Valoare totala</div>
+            <div class="metric__value">5000 lei</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Cel mai scump</div>
+            <div class="metric__value">3200 lei</div>
+            <div class="metric__note">Laptop Nova 15</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Pe categorie</div>
+            <div class="metric__row"><span>Calculatoare</span><strong>2</strong></div>
+            <div class="metric__row"><span>Accesorii</span><strong>2</strong></div>
+          </div>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="metrics"&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Valoare totala&lt;/div&gt;
+    &lt;div class="metric__value"&gt;5000 lei&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Cel mai scump&lt;/div&gt;
+    &lt;div class="metric__value"&gt;3200 lei&lt;/div&gt;
+    &lt;div class="metric__note"&gt;Laptop Nova 15&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Pe categorie&lt;/div&gt;
+    &lt;div class="metric__row"&gt;&lt;span&gt;Calculatoare&lt;/span&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/div&gt;
+    &lt;div class="metric__row"&gt;&lt;span&gt;Accesorii&lt;/span&gt;&lt;strong&gt;2&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="butoane">
+      <h3 class="mock-demo__title">Butoane</h3>
+      <p class="mock-demo__text">Principal (mov), secundar (ghost), periculos (contur rosu), mic, dezactivat. In tile, Sterge sta separat, la dreapta.</p>
+      <div class="mock-preview">
+        <button class="btn btn--primary">Salveaza</button>
+        <button class="btn btn--ghost">Renunta</button>
+        <button class="btn btn--danger">Sterge definitiv</button>
+        <button class="btn btn--ghost btn--small">Editeaza</button>
+        <button class="btn btn--primary" disabled>Salveaza</button>
+      </div>
+      <pre class="mock-code">&lt;button class="btn btn--primary"&gt;Salveaza&lt;/button&gt;
+&lt;button class="btn btn--ghost"&gt;Renunta&lt;/button&gt;
+&lt;button class="btn btn--danger"&gt;Sterge definitiv&lt;/button&gt;
+&lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+&lt;button class="btn btn--primary" disabled&gt;Salveaza&lt;/button&gt;</pre>
+    </section>
+    <section class="mock-demo" id="iconite">
+      <h3 class="mock-demo__title">Iconite</h3>
+      <p class="mock-demo__text">SVG inline, desenate cu linie (clasa icon, culoarea textului). Sagetile de sortare au aria-label; × din cos are eticheta pe buton.</p>
+      <div class="mock-preview">
+        <button class="btn btn--ghost btn--small">Pret <svg class="icon" viewBox="0 0 16 16" role="img" aria-label="crescator"><path d="M8 13V3M4 7l4-4 4 4" /></svg></button>
+        <button class="btn btn--ghost btn--small">Pret <svg class="icon" viewBox="0 0 16 16" role="img" aria-label="descrescator"><path d="M8 3v10M4 9l4 4 4-4" /></svg></button>
+        <button class="cart__remove" aria-label="Scoate din cos"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
+      </div>
+      <pre class="mock-code">&lt;button class="btn btn--ghost btn--small"&gt;Pret &lt;svg class="icon" viewBox="0 0 16 16" role="img" aria-label="crescator"&gt;&lt;path d="M8 13V3M4 7l4-4 4 4" /&gt;&lt;/svg&gt;&lt;/button&gt;
+&lt;button class="btn btn--ghost btn--small"&gt;Pret &lt;svg class="icon" viewBox="0 0 16 16" role="img" aria-label="descrescator"&gt;&lt;path d="M8 3v10M4 9l4 4 4-4" /&gt;&lt;/svg&gt;&lt;/button&gt;
+&lt;button class="cart__remove" aria-label="Scoate din cos"&gt;&lt;svg class="icon" viewBox="0 0 16 16" aria-hidden="true"&gt;&lt;path d="M4 4l8 8M12 4l-8 8" /&gt;&lt;/svg&gt;&lt;/button&gt;</pre>
+    </section>
+    <section class="mock-demo" id="campuri">
+      <h3 class="mock-demo__title">Campuri</h3>
+      <p class="mock-demo__text">Eticheta + camp; steluta marcheaza campurile obligatorii.</p>
+      <div class="mock-preview">
+        <div class="field">
+          <label class="field__label" for="c-sku">SKU <span class="field__req">*</span></label>
+          <input id="c-sku" class="field__input" placeholder="ex. MOU-002" />
+        </div>
+        <div class="field">
+          <label class="field__label" for="c-price">Pret (lei)</label>
+          <input id="c-price" type="number" class="field__input" value="0" />
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="field"&gt;
+  &lt;label class="field__label" for="c-sku"&gt;SKU &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+  &lt;input id="c-sku" class="field__input" placeholder="ex. MOU-002" /&gt;
+&lt;/div&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field__label" for="c-price"&gt;Pret (lei)&lt;/label&gt;
+  &lt;input id="c-price" type="number" class="field__input" value="0" /&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="erori">
+      <h3 class="mock-demo__title">Erori pe campuri</h3>
+      <p class="mock-demo__text">Campul primeste field__input--invalid (in className, cand campul are eroare), iar mesajul sta sub el in field__error.</p>
+      <div class="mock-preview">
+        <div class="field">
+          <label class="field__label" for="e-sku">SKU <span class="field__req">*</span></label>
+          <input id="e-sku" class="field__input field__input--invalid" />
+          <span class="field__error">SKU-ul e obligatoriu</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="e-sku2">SKU <span class="field__req">*</span></label>
+          <input id="e-sku2" class="field__input field__input--invalid" value="LAP-001" />
+          <span class="field__error">SKU-ul exista deja</span>
+        </div>
+        <div class="field">
+          <label class="field__label" for="e-price">Pret (lei)</label>
+          <input id="e-price" type="number" class="field__input field__input--invalid" value="-3" />
+          <span class="field__error">Pretul trebuie sa fie intre 1 si 50000</span>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="field"&gt;
+  &lt;label class="field__label" for="e-sku"&gt;SKU &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+  &lt;input id="e-sku" class="field__input field__input--invalid" /&gt;
+  &lt;span class="field__error"&gt;SKU-ul e obligatoriu&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field__label" for="e-sku2"&gt;SKU &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+  &lt;input id="e-sku2" class="field__input field__input--invalid" value="LAP-001" /&gt;
+  &lt;span class="field__error"&gt;SKU-ul exista deja&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="field"&gt;
+  &lt;label class="field__label" for="e-price"&gt;Pret (lei)&lt;/label&gt;
+  &lt;input id="e-price" type="number" class="field__input field__input--invalid" value="-3" /&gt;
+  &lt;span class="field__error"&gt;Pretul trebuie sa fie intre 1 si 50000&lt;/span&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="formular">
+      <h3 class="mock-demo__title">Formular</h3>
+      <p class="mock-demo__text">Titlul e „Produs nou” sau „Editare produs”; Renunta apare doar la editare, Salveaza e dezactivat cat timp e o eroare.</p>
+      <div class="mock-preview">
+        <section class="panel">
+          <h2 class="panel__title">Produs nou</h2>
+          <div class="form">
+            <div class="field">
+              <label class="field__label" for="f-sku">SKU <span class="field__req">*</span></label>
+              <input id="f-sku" class="field__input field__input--invalid" value="LAP-001" />
+              <span class="field__error">SKU-ul exista deja</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-name">Produs <span class="field__req">*</span></label>
+              <input id="f-name" class="field__input" value="Mouse" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-category">Categorie <span class="field__req">*</span></label>
+              <input id="f-category" class="field__input" value="Accesorii" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-price">Pret (lei)</label>
+              <input id="f-price" type="number" class="field__input field__input--invalid" value="-3" />
+              <span class="field__error">Pretul trebuie sa fie intre 1 si 50000</span>
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-weight">Greutate (g)</label>
+              <input id="f-weight" type="number" class="field__input" value="95" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="f-stock">Stoc (buc)</label>
+              <input id="f-stock" type="number" class="field__input" value="10" />
+            </div>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--ghost">Renunta</button>
+            <button class="btn btn--primary" disabled>Salveaza</button>
+          </div>
+        </section>
+      </div>
+      <pre class="mock-code">&lt;section class="panel"&gt;
+  &lt;h2 class="panel__title"&gt;Produs nou&lt;/h2&gt;
+  &lt;div class="form"&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-sku"&gt;SKU &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+      &lt;input id="f-sku" class="field__input field__input--invalid" value="LAP-001" /&gt;
+      &lt;span class="field__error"&gt;SKU-ul exista deja&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-name"&gt;Produs &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+      &lt;input id="f-name" class="field__input" value="Mouse" /&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-category"&gt;Categorie &lt;span class="field__req"&gt;*&lt;/span&gt;&lt;/label&gt;
+      &lt;input id="f-category" class="field__input" value="Accesorii" /&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-price"&gt;Pret (lei)&lt;/label&gt;
+      &lt;input id="f-price" type="number" class="field__input field__input--invalid" value="-3" /&gt;
+      &lt;span class="field__error"&gt;Pretul trebuie sa fie intre 1 si 50000&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-weight"&gt;Greutate (g)&lt;/label&gt;
+      &lt;input id="f-weight" type="number" class="field__input" value="95" /&gt;
+    &lt;/div&gt;
+    &lt;div class="field"&gt;
+      &lt;label class="field__label" for="f-stock"&gt;Stoc (buc)&lt;/label&gt;
+      &lt;input id="f-stock" type="number" class="field__input" value="10" /&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="form__actions"&gt;
+    &lt;button class="btn btn--ghost"&gt;Renunta&lt;/button&gt;
+    &lt;button class="btn btn--primary" disabled&gt;Salveaza&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+    </section>
+    <section class="mock-demo" id="chip">
+      <h3 class="mock-demo__title">Chip-uri de categorie</h3>
+      <p class="mock-demo__text">Filtrul pe categorie, cu patratelul categoriei; cel ales primeste chip--active.</p>
+      <div class="mock-preview">
+        <div class="chips">
+          <button class="chip chip--active">Toate</button>
+          <button class="chip"><span class="swatch swatch--calculatoare"></span>Calculatoare</button>
+          <button class="chip"><span class="swatch swatch--accesorii"></span>Accesorii</button>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="chips"&gt;
+  &lt;button class="chip chip--active"&gt;Toate&lt;/button&gt;
+  &lt;button class="chip"&gt;&lt;span class="swatch swatch--calculatoare"&gt;&lt;/span&gt;Calculatoare&lt;/button&gt;
+  &lt;button class="chip"&gt;&lt;span class="swatch swatch--accesorii"&gt;&lt;/span&gt;Accesorii&lt;/button&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="toolbar">
+      <h3 class="mock-demo__title">Bara de unelte</h3>
+      <p class="mock-demo__text">Cautare, sortare dupa pret (sageata din Iconite, aleasa cu ? : dupa directie), bifa „Doar produse active” (partea 2) si chip-urile.</p>
+      <div class="mock-preview">
+        <section class="toolbar">
+          <div class="toolbar__row">
+            <input type="search" class="field__input toolbar__search" placeholder="Cauta dupa nume sau SKU..." aria-label="Cauta" />
+            <button class="btn btn--ghost btn--small">Pret <svg class="icon" viewBox="0 0 16 16" role="img" aria-label="crescator"><path d="M8 13V3M4 7l4-4 4 4" /></svg></button>
+            <label class="check"><input type="checkbox" /> Doar produse active</label>
+          </div>
+          <div class="chips">
+            <button class="chip chip--active">Toate</button>
+            <button class="chip"><span class="swatch swatch--calculatoare"></span>Calculatoare</button>
+            <button class="chip"><span class="swatch swatch--accesorii"></span>Accesorii</button>
+            <button class="chip"><span class="swatch swatch--bucatarie"></span>Bucatarie</button>
+          </div>
+        </section>
+      </div>
+      <pre class="mock-code">&lt;section class="toolbar"&gt;
+  &lt;div class="toolbar__row"&gt;
+    &lt;input type="search" class="field__input toolbar__search" placeholder="Cauta dupa nume sau SKU..." aria-label="Cauta" /&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Pret &lt;svg class="icon" viewBox="0 0 16 16" role="img" aria-label="crescator"&gt;&lt;path d="M8 13V3M4 7l4-4 4 4" /&gt;&lt;/svg&gt;&lt;/button&gt;
+    &lt;label class="check"&gt;&lt;input type="checkbox" /&gt; Doar produse active&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div class="chips"&gt;
+    &lt;button class="chip chip--active"&gt;Toate&lt;/button&gt;
+    &lt;button class="chip"&gt;&lt;span class="swatch swatch--calculatoare"&gt;&lt;/span&gt;Calculatoare&lt;/button&gt;
+    &lt;button class="chip"&gt;&lt;span class="swatch swatch--accesorii"&gt;&lt;/span&gt;Accesorii&lt;/button&gt;
+    &lt;button class="chip"&gt;&lt;span class="swatch swatch--bucatarie"&gt;&lt;/span&gt;Bucatarie&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/section&gt;</pre>
+    </section>
+    <section class="mock-demo" id="produs">
+      <h3 class="mock-demo__title">Produs</h3>
+      <p class="mock-demo__text">Un tile; in grila .tiles il repeti pentru fiecare produs. Pretul simplu, fara eticheta.</p>
+      <div class="mock-preview">
+        <article class="tile">
+          <div class="tile__top">
+            <span class="tile__sku"><span class="swatch swatch--accesorii"></span>MOU-002</span>
+          </div>
+          <h3 class="tile__name">Mouse Wireless</h3>
+          <p class="tile__meta">Accesorii &middot; 95 g</p>
+          <div class="tile__price">90 lei</div>
+          <div class="tile__actions">
+            <button class="btn btn--ghost btn--small">Editeaza</button>
+            <button class="btn btn--danger btn--small">Sterge</button>
+          </div>
+        </article>
+      </div>
+      <pre class="mock-code">&lt;article class="tile"&gt;
+  &lt;div class="tile__top"&gt;
+    &lt;span class="tile__sku"&gt;&lt;span class="swatch swatch--accesorii"&gt;&lt;/span&gt;MOU-002&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="tile__name"&gt;Mouse Wireless&lt;/h3&gt;
+  &lt;p class="tile__meta"&gt;Accesorii &amp;middot; 95 g&lt;/p&gt;
+  &lt;div class="tile__price"&gt;90 lei&lt;/div&gt;
+  &lt;div class="tile__actions"&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+    &lt;button class="btn btn--danger btn--small"&gt;Sterge&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    </section>
+    <section class="mock-demo" id="scump">
+      <h3 class="mock-demo__title">Produs scump</h3>
+      <p class="mock-demo__text">De la 500 lei, langa pret apare eticheta discreta tag „Scump”.</p>
+      <div class="mock-preview">
+        <article class="tile">
+          <div class="tile__top">
+            <span class="tile__sku"><span class="swatch swatch--calculatoare"></span>LAP-001</span>
+          </div>
+          <h3 class="tile__name">Laptop Nova 15</h3>
+          <p class="tile__meta">Calculatoare &middot; 1800 g</p>
+          <div class="tile__price">3200 lei <span class="tag">Scump</span></div>
+          <div class="tile__actions">
+            <button class="btn btn--ghost btn--small">Editeaza</button>
+            <button class="btn btn--danger btn--small">Sterge</button>
+          </div>
+        </article>
+      </div>
+      <pre class="mock-code">&lt;article class="tile"&gt;
+  &lt;div class="tile__top"&gt;
+    &lt;span class="tile__sku"&gt;&lt;span class="swatch swatch--calculatoare"&gt;&lt;/span&gt;LAP-001&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="tile__name"&gt;Laptop Nova 15&lt;/h3&gt;
+  &lt;p class="tile__meta"&gt;Calculatoare &amp;middot; 1800 g&lt;/p&gt;
+  &lt;div class="tile__price"&gt;3200 lei &lt;span class="tag"&gt;Scump&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="tile__actions"&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+    &lt;button class="btn btn--danger btn--small"&gt;Sterge&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    </section>
+    <section class="mock-demo" id="gol">
+      <h3 class="mock-demo__title">Lista goala</h3>
+      <p class="mock-demo__text">In locul tile-urilor, cand nu e niciun produs de aratat.</p>
+      <div class="mock-preview">
+        <div class="tiles">
+          <div class="empty">
+            <p class="empty__title">Niciun produs</p>
+            <p class="empty__text">Schimba cautarea sau filtrul.</p>
+          </div>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="tiles"&gt;
+  &lt;div class="empty"&gt;
+    &lt;p class="empty__title"&gt;Niciun produs&lt;/p&gt;
+    &lt;p class="empty__text"&gt;Schimba cautarea sau filtrul.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="dialog">
+      <h3 class="mock-demo__title">Dialog de confirmare</h3>
+      <p class="mock-demo__text">backdrop sta peste toata pagina (aici e prins intr-un chenar ca sa se vada).</p>
+      <div class="mock-preview">
+        <div class="mock-stage">
+          <div class="backdrop">
+            <div class="dialog">
+              <h3 class="dialog__title">Stergi produsul?</h3>
+              <p class="dialog__text">Mouse Wireless va fi sters definitiv.</p>
+              <div class="dialog__actions">
+                <button class="btn btn--ghost">Renunta</button>
+                <button class="btn btn--danger">Sterge definitiv</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="backdrop"&gt;
+  &lt;div class="dialog"&gt;
+    &lt;h3 class="dialog__title"&gt;Stergi produsul?&lt;/h3&gt;
+    &lt;p class="dialog__text"&gt;Mouse Wireless va fi sters definitiv.&lt;/p&gt;
+    &lt;div class="dialog__actions"&gt;
+      &lt;button class="btn btn--ghost"&gt;Renunta&lt;/button&gt;
+      &lt;button class="btn btn--danger"&gt;Sterge definitiv&lt;/button&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <h2 class="mock-part">Partea 2: Stoc</h2>
+    <section class="mock-demo" id="pill-stoc">
+      <h3 class="mock-demo__title">Stampile de stoc</h3>
+      <p class="mock-demo__text">Umplerea arata nivelul: Epuizat (stoc 0) plina, Stoc redus (sub 5) doar contur, In stoc hasurata. Stau in tile__top.</p>
+      <div class="mock-preview">
+        <span class="pill pill--danger">Epuizat</span>
+        <span class="pill pill--warn">Stoc redus</span>
+        <span class="pill pill--ok">In stoc</span>
+      </div>
+      <pre class="mock-code">&lt;span class="pill pill--danger"&gt;Epuizat&lt;/span&gt;
+&lt;span class="pill pill--warn"&gt;Stoc redus&lt;/span&gt;
+&lt;span class="pill pill--ok"&gt;In stoc&lt;/span&gt;</pre>
+    </section>
+    <section class="mock-demo" id="qty">
+      <h3 class="mock-demo__title">Cantitate</h3>
+      <p class="mock-demo__text">− / valoare / +; la 0, − e dezactivat.</p>
+      <div class="mock-preview">
+        <div class="qty">
+          <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+          <span class="qty__value">4</span>
+          <button class="qty__btn" aria-label="Creste stocul">+</button>
+        </div>
+        <div class="qty">
+          <button class="qty__btn" aria-label="Scade stocul" disabled>&minus;</button>
+          <span class="qty__value">0</span>
+          <button class="qty__btn" aria-label="Creste stocul">+</button>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="qty"&gt;
+  &lt;button class="qty__btn" aria-label="Scade stocul"&gt;&amp;minus;&lt;/button&gt;
+  &lt;span class="qty__value"&gt;4&lt;/span&gt;
+  &lt;button class="qty__btn" aria-label="Creste stocul"&gt;+&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="qty"&gt;
+  &lt;button class="qty__btn" aria-label="Scade stocul" disabled&gt;&amp;minus;&lt;/button&gt;
+  &lt;span class="qty__value"&gt;0&lt;/span&gt;
+  &lt;button class="qty__btn" aria-label="Creste stocul"&gt;+&lt;/button&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="switch">
+      <h3 class="mock-demo__title">Comutator Activ / Inactiv</h3>
+      <p class="mock-demo__text">Un buton: switch--on cand produsul e activ, textul se schimba.</p>
+      <div class="mock-preview">
+        <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+        <button class="switch"><span class="switch__track"></span>Inactiv</button>
+      </div>
+      <pre class="mock-code">&lt;button class="switch switch--on"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;Activ&lt;/button&gt;
+&lt;button class="switch"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;Inactiv&lt;/button&gt;</pre>
+    </section>
+    <section class="mock-demo" id="produs-stoc">
+      <h3 class="mock-demo__title">Produs cu stoc</h3>
+      <p class="mock-demo__text">Tile-ul din partea 1 + stampila de stoc + randul tile__stock: stocul in cifre mari, intre − si +, si comutatorul.</p>
+      <div class="mock-preview">
+        <article class="tile">
+          <div class="tile__top">
+            <span class="tile__sku"><span class="swatch swatch--accesorii"></span>CAS-004</span>
+            <span class="pill pill--ok">In stoc</span>
+          </div>
+          <h3 class="tile__name">Casti Studio</h3>
+          <p class="tile__meta">Accesorii &middot; 280 g</p>
+          <div class="tile__price">250 lei</div>
+          <div class="tile__stock">
+            <div class="qty">
+              <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+              <span class="qty__value">12 <small class="qty__unit">buc</small></span>
+              <button class="qty__btn" aria-label="Creste stocul">+</button>
+            </div>
+            <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+          </div>
+          <div class="tile__actions">
+            <button class="btn btn--ghost btn--small">Editeaza</button>
+            <button class="btn btn--danger btn--small">Sterge</button>
+          </div>
+        </article>
+      </div>
+      <pre class="mock-code">&lt;article class="tile"&gt;
+  &lt;div class="tile__top"&gt;
+    &lt;span class="tile__sku"&gt;&lt;span class="swatch swatch--accesorii"&gt;&lt;/span&gt;CAS-004&lt;/span&gt;
+    &lt;span class="pill pill--ok"&gt;In stoc&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="tile__name"&gt;Casti Studio&lt;/h3&gt;
+  &lt;p class="tile__meta"&gt;Accesorii &amp;middot; 280 g&lt;/p&gt;
+  &lt;div class="tile__price"&gt;250 lei&lt;/div&gt;
+  &lt;div class="tile__stock"&gt;
+    &lt;div class="qty"&gt;
+      &lt;button class="qty__btn" aria-label="Scade stocul"&gt;&amp;minus;&lt;/button&gt;
+      &lt;span class="qty__value"&gt;12 &lt;small class="qty__unit"&gt;buc&lt;/small&gt;&lt;/span&gt;
+      &lt;button class="qty__btn" aria-label="Creste stocul"&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="switch switch--on"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;Activ&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tile__actions"&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+    &lt;button class="btn btn--danger btn--small"&gt;Sterge&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    </section>
+    <section class="mock-demo" id="inactiv">
+      <h3 class="mock-demo__title">Produs inactiv</h3>
+      <p class="mock-demo__text">tile--muted il arata estompat.</p>
+      <div class="mock-preview">
+        <article class="tile tile--muted">
+          <div class="tile__top">
+            <span class="tile__sku"><span class="swatch swatch--bucatarie"></span>CEA-006</span>
+            <span class="pill pill--warn">Stoc redus</span>
+          </div>
+          <h3 class="tile__name">Ceainic electric</h3>
+          <p class="tile__meta">Bucatarie &middot; 900 g</p>
+          <div class="tile__price">300 lei</div>
+          <div class="tile__stock">
+            <div class="qty">
+              <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+              <span class="qty__value">3 <small class="qty__unit">buc</small></span>
+              <button class="qty__btn" aria-label="Creste stocul">+</button>
+            </div>
+            <button class="switch"><span class="switch__track"></span>Inactiv</button>
+          </div>
+          <div class="tile__actions">
+            <button class="btn btn--ghost btn--small">Editeaza</button>
+            <button class="btn btn--danger btn--small">Sterge</button>
+          </div>
+        </article>
+      </div>
+      <pre class="mock-code">&lt;article class="tile tile--muted"&gt;
+  &lt;div class="tile__top"&gt;
+    &lt;span class="tile__sku"&gt;&lt;span class="swatch swatch--bucatarie"&gt;&lt;/span&gt;CEA-006&lt;/span&gt;
+    &lt;span class="pill pill--warn"&gt;Stoc redus&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="tile__name"&gt;Ceainic electric&lt;/h3&gt;
+  &lt;p class="tile__meta"&gt;Bucatarie &amp;middot; 900 g&lt;/p&gt;
+  &lt;div class="tile__price"&gt;300 lei&lt;/div&gt;
+  &lt;div class="tile__stock"&gt;
+    &lt;div class="qty"&gt;
+      &lt;button class="qty__btn" aria-label="Scade stocul"&gt;&amp;minus;&lt;/button&gt;
+      &lt;span class="qty__value"&gt;3 &lt;small class="qty__unit"&gt;buc&lt;/small&gt;&lt;/span&gt;
+      &lt;button class="qty__btn" aria-label="Creste stocul"&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="switch"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;Inactiv&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tile__actions"&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+    &lt;button class="btn btn--danger btn--small"&gt;Sterge&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    </section>
+    <section class="mock-demo" id="epuizat">
+      <h3 class="mock-demo__title">Produs epuizat</h3>
+      <p class="mock-demo__text">Stoc 0: eticheta Epuizat si − dezactivat.</p>
+      <div class="mock-preview">
+        <article class="tile">
+          <div class="tile__top">
+            <span class="tile__sku"><span class="swatch swatch--calculatoare"></span>MON-003</span>
+            <span class="pill pill--danger">Epuizat</span>
+          </div>
+          <h3 class="tile__name">Monitor 27 inch</h3>
+          <p class="tile__meta">Calculatoare &middot; 4200 g</p>
+          <div class="tile__price">1100 lei <span class="tag">Scump</span></div>
+          <div class="tile__stock">
+            <div class="qty">
+              <button class="qty__btn" aria-label="Scade stocul" disabled>&minus;</button>
+              <span class="qty__value">0 <small class="qty__unit">buc</small></span>
+              <button class="qty__btn" aria-label="Creste stocul">+</button>
+            </div>
+            <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+          </div>
+          <div class="tile__actions">
+            <button class="btn btn--ghost btn--small">Editeaza</button>
+            <button class="btn btn--danger btn--small">Sterge</button>
+          </div>
+        </article>
+      </div>
+      <pre class="mock-code">&lt;article class="tile"&gt;
+  &lt;div class="tile__top"&gt;
+    &lt;span class="tile__sku"&gt;&lt;span class="swatch swatch--calculatoare"&gt;&lt;/span&gt;MON-003&lt;/span&gt;
+    &lt;span class="pill pill--danger"&gt;Epuizat&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;h3 class="tile__name"&gt;Monitor 27 inch&lt;/h3&gt;
+  &lt;p class="tile__meta"&gt;Calculatoare &amp;middot; 4200 g&lt;/p&gt;
+  &lt;div class="tile__price"&gt;1100 lei &lt;span class="tag"&gt;Scump&lt;/span&gt;&lt;/div&gt;
+  &lt;div class="tile__stock"&gt;
+    &lt;div class="qty"&gt;
+      &lt;button class="qty__btn" aria-label="Scade stocul" disabled&gt;&amp;minus;&lt;/button&gt;
+      &lt;span class="qty__value"&gt;0 &lt;small class="qty__unit"&gt;buc&lt;/small&gt;&lt;/span&gt;
+      &lt;button class="qty__btn" aria-label="Creste stocul"&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;button class="switch switch--on"&gt;&lt;span class="switch__track"&gt;&lt;/span&gt;Activ&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="tile__actions"&gt;
+    &lt;button class="btn btn--ghost btn--small"&gt;Editeaza&lt;/button&gt;
+    &lt;button class="btn btn--danger btn--small"&gt;Sterge&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/article&gt;</pre>
+    </section>
+    <section class="mock-demo" id="metrici-stoc">
+      <h3 class="mock-demo__title">Metrici de stoc</h3>
+      <p class="mock-demo__text">Aceeasi metrica din partea 1, cu alte valori.</p>
+      <div class="mock-preview">
+        <div class="metrics">
+          <div class="metric">
+            <div class="metric__label">Produse epuizate</div>
+            <div class="metric__value">1</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Valoarea stocului</div>
+            <div class="metric__value">21350 lei</div>
+          </div>
+          <div class="metric">
+            <div class="metric__label">Cele mai multe bucati</div>
+            <div class="metric__value">40 buc</div>
+            <div class="metric__note">Cafea boabe 1kg</div>
+          </div>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="metrics"&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Produse epuizate&lt;/div&gt;
+    &lt;div class="metric__value"&gt;1&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Valoarea stocului&lt;/div&gt;
+    &lt;div class="metric__value"&gt;21350 lei&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="metric"&gt;
+    &lt;div class="metric__label"&gt;Cele mai multe bucati&lt;/div&gt;
+    &lt;div class="metric__value"&gt;40 buc&lt;/div&gt;
+    &lt;div class="metric__note"&gt;Cafea boabe 1kg&lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+    </section>
+    <h2 class="mock-part">Partea 3: Cos</h2>
+    <section class="mock-demo" id="adauga">
+      <h3 class="mock-demo__title">Adauga in cos</h3>
+      <p class="mock-demo__text">In tile, deasupra lui tile__actions; dezactivat la stoc 0 sau produs inactiv.</p>
+      <div class="mock-preview">
+        <button class="btn btn--primary btn--block">Adauga in cos</button>
+        <button class="btn btn--primary btn--block" disabled>Adauga in cos</button>
+      </div>
+      <pre class="mock-code">&lt;button class="btn btn--primary btn--block"&gt;Adauga in cos&lt;/button&gt;
+&lt;button class="btn btn--primary btn--block" disabled&gt;Adauga in cos&lt;/button&gt;</pre>
+    </section>
+    <section class="mock-demo" id="cos">
+      <h3 class="mock-demo__title">Cos cu produse</h3>
+      <p class="mock-demo__text">Coletul din dreapta: banda cu numarul de bucati, o linie per produs (nume, pret unitar, cantitate, subtotal, ×), totalurile sub linia groasa.</p>
+      <div class="mock-preview">
+        <aside class="cart">
+          <div class="cart__head">
+            <h2 class="cart__title">Colet in pregatire</h2>
+            <span class="cart__count">3 buc</span>
+          </div>
+          <ul class="cart__lines">
+            <li class="cart__line">
+              <span class="cart__name">Laptop Nova 15</span>
+              <button class="cart__remove" aria-label="Scoate din cos"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
+              <span class="cart__unit">3200 lei / buc</span>
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade cantitatea">&minus;</button>
+                <span class="qty__value">1</span>
+                <button class="qty__btn" aria-label="Creste cantitatea">+</button>
+              </div>
+              <span class="cart__subtotal">3200 lei</span>
+            </li>
+            <li class="cart__line">
+              <span class="cart__name">Mouse Wireless</span>
+              <button class="cart__remove" aria-label="Scoate din cos"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
+              <span class="cart__unit">90 lei / buc</span>
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade cantitatea">&minus;</button>
+                <span class="qty__value">2</span>
+                <button class="qty__btn" aria-label="Creste cantitatea">+</button>
+              </div>
+              <span class="cart__subtotal">180 lei</span>
+            </li>
+          </ul>
+          <div class="cart__summary">
+            <div class="cart__row"><span>Total bucati</span><span>3</span></div>
+            <div class="cart__row"><span>Subtotal</span><span>3380 lei</span></div>
+            <div class="cart__row cart__row--discount"><span>Reducere 10%</span><span>&minus;338 lei</span></div>
+            <div class="cart__total"><span>Total de plata</span><strong>3042 lei</strong></div>
+          </div>
+          <button class="btn btn--primary btn--block">Finalizeaza comanda</button>
+        </aside>
+      </div>
+      <pre class="mock-code">&lt;aside class="cart"&gt;
+  &lt;div class="cart__head"&gt;
+    &lt;h2 class="cart__title"&gt;Colet in pregatire&lt;/h2&gt;
+    &lt;span class="cart__count"&gt;3 buc&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;ul class="cart__lines"&gt;
+    &lt;li class="cart__line"&gt;
+      &lt;span class="cart__name"&gt;Laptop Nova 15&lt;/span&gt;
+      &lt;button class="cart__remove" aria-label="Scoate din cos"&gt;&lt;svg class="icon" viewBox="0 0 16 16" aria-hidden="true"&gt;&lt;path d="M4 4l8 8M12 4l-8 8" /&gt;&lt;/svg&gt;&lt;/button&gt;
+      &lt;span class="cart__unit"&gt;3200 lei / buc&lt;/span&gt;
+      &lt;div class="qty"&gt;
+        &lt;button class="qty__btn" aria-label="Scade cantitatea"&gt;&amp;minus;&lt;/button&gt;
+        &lt;span class="qty__value"&gt;1&lt;/span&gt;
+        &lt;button class="qty__btn" aria-label="Creste cantitatea"&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class="cart__subtotal"&gt;3200 lei&lt;/span&gt;
+    &lt;/li&gt;
+    &lt;li class="cart__line"&gt;
+      &lt;span class="cart__name"&gt;Mouse Wireless&lt;/span&gt;
+      &lt;button class="cart__remove" aria-label="Scoate din cos"&gt;&lt;svg class="icon" viewBox="0 0 16 16" aria-hidden="true"&gt;&lt;path d="M4 4l8 8M12 4l-8 8" /&gt;&lt;/svg&gt;&lt;/button&gt;
+      &lt;span class="cart__unit"&gt;90 lei / buc&lt;/span&gt;
+      &lt;div class="qty"&gt;
+        &lt;button class="qty__btn" aria-label="Scade cantitatea"&gt;&amp;minus;&lt;/button&gt;
+        &lt;span class="qty__value"&gt;2&lt;/span&gt;
+        &lt;button class="qty__btn" aria-label="Creste cantitatea"&gt;+&lt;/button&gt;
+      &lt;/div&gt;
+      &lt;span class="cart__subtotal"&gt;180 lei&lt;/span&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  &lt;div class="cart__summary"&gt;
+    &lt;div class="cart__row"&gt;&lt;span&gt;Total bucati&lt;/span&gt;&lt;span&gt;3&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="cart__row"&gt;&lt;span&gt;Subtotal&lt;/span&gt;&lt;span&gt;3380 lei&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="cart__row cart__row--discount"&gt;&lt;span&gt;Reducere 10%&lt;/span&gt;&lt;span&gt;&amp;minus;338 lei&lt;/span&gt;&lt;/div&gt;
+    &lt;div class="cart__total"&gt;&lt;span&gt;Total de plata&lt;/span&gt;&lt;strong&gt;3042 lei&lt;/strong&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;button class="btn btn--primary btn--block"&gt;Finalizeaza comanda&lt;/button&gt;
+&lt;/aside&gt;</pre>
+    </section>
+    <section class="mock-demo" id="reducere">
+      <h3 class="mock-demo__title">Linia de reducere</h3>
+      <p class="mock-demo__text">Apare in cart__summary doar cand subtotalul trece de 1000 lei.</p>
+      <div class="mock-preview">
+        <div class="cart__summary">
+          <div class="cart__row cart__row--discount"><span>Reducere 10%</span><span>&minus;338 lei</span></div>
+        </div>
+      </div>
+      <pre class="mock-code">&lt;div class="cart__row cart__row--discount"&gt;&lt;span&gt;Reducere 10%&lt;/span&gt;&lt;span&gt;&amp;minus;338 lei&lt;/span&gt;&lt;/div&gt;</pre>
+    </section>
+    <section class="mock-demo" id="cos-gol">
+      <h3 class="mock-demo__title">Cos gol</h3>
+      <p class="mock-demo__text">In locul liniilor si al totalurilor, cand cosul nu are nimic.</p>
+      <div class="mock-preview">
+        <aside class="cart">
+          <div class="cart__head">
+            <h2 class="cart__title">Colet in pregatire</h2>
+            <span class="cart__count">0 buc</span>
+          </div>
+          <div class="empty">
+            <p class="empty__title">Cosul e gol</p>
+            <p class="empty__text">Adauga produse din catalog.</p>
+          </div>
+        </aside>
+      </div>
+      <pre class="mock-code">&lt;aside class="cart"&gt;
+  &lt;div class="cart__head"&gt;
+    &lt;h2 class="cart__title"&gt;Colet in pregatire&lt;/h2&gt;
+    &lt;span class="cart__count"&gt;0 buc&lt;/span&gt;
+  &lt;/div&gt;
+  &lt;div class="empty"&gt;
+    &lt;p class="empty__title"&gt;Cosul e gol&lt;/p&gt;
+    &lt;p class="empty__text"&gt;Adauga produse din catalog.&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/aside&gt;</pre>
+    </section>
+  </main>
+
+</body>
+</html>

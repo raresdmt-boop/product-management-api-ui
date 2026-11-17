@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Depozit MCS: fara server</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="mock-bar">
+    <div class="mock-bar__inner">
+      <span class="mock-bar__tag">Mockup</span>
+      <a href="index.html" class="mock-bar__link mock-bar__link--active">Aplicatia</a>
+      <a href="componente.html" class="mock-bar__link">Componente</a>
+      <span class="mock-bar__hint">totul in src/products/ProductList.tsx</span>
+    </div>
+  </div>
+
+  <div class="shop">
+
+    <header class="navbar">
+      <div class="navbar__inner">
+        <div class="navbar__brand">
+          <span class="navbar__logo"><img src="mcs-logo.png" alt="MyCodeSchool" width="118" height="22" /></span>
+          Depozit MCS
+        </div>
+        <div class="navbar__user">
+          <span class="navbar__email">admin@mycode.ro</span>
+          <span class="navbar__avatar">AD</span>
+        </div>
+      </div>
+    </header>
+
+    <div class="layout">
+
+      <main class="catalog">
+
+        <h1 class="catalog__title">Produse <span class="catalog__count">6 in catalog</span></h1>
+
+        <section>
+          <h2 class="section-label">Catalog</h2>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric__label">Valoare totala</div>
+              <div class="metric__value">5000 lei</div>
+            </div>
+            <div class="metric">
+              <div class="metric__label">Pret mediu</div>
+              <div class="metric__value">833.3 lei</div>
+            </div>
+            <div class="metric">
+              <div class="metric__label">Cel mai scump</div>
+              <div class="metric__value">3200 lei</div>
+              <div class="metric__note">Laptop Nova 15</div>
+            </div>
+            <div class="metric">
+              <div class="metric__label">Pe categorie</div>
+              <div class="metric__row"><span>Calculatoare</span><strong>2</strong></div>
+              <div class="metric__row"><span>Accesorii</span><strong>2</strong></div>
+              <div class="metric__row"><span>Bucatarie</span><strong>2</strong></div>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 class="section-label">Stoc</h2>
+          <div class="metrics">
+            <div class="metric">
+              <div class="metric__label">Produse epuizate</div>
+              <div class="metric__value">1</div>
+            </div>
+            <div class="metric">
+              <div class="metric__label">Valoarea stocului</div>
+              <div class="metric__value">21350 lei</div>
+            </div>
+            <div class="metric">
+              <div class="metric__label">Cele mai multe bucati</div>
+              <div class="metric__value">40 buc</div>
+              <div class="metric__note">Cafea boabe 1kg</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="toolbar">
+          <div class="toolbar__row">
+            <input type="search" class="field__input toolbar__search" placeholder="Cauta dupa nume sau SKU..." aria-label="Cauta" />
+            <button class="btn btn--ghost btn--small">Pret <svg class="icon" viewBox="0 0 16 16" role="img" aria-label="crescator"><path d="M8 13V3M4 7l4-4 4 4" /></svg></button>
+            <label class="check"><input type="checkbox" /> Doar produse active</label>
+          </div>
+          <div class="chips">
+            <button class="chip chip--active">Toate</button>
+            <button class="chip"><span class="swatch swatch--calculatoare"></span>Calculatoare</button>
+            <button class="chip"><span class="swatch swatch--accesorii"></span>Accesorii</button>
+            <button class="chip"><span class="swatch swatch--bucatarie"></span>Bucatarie</button>
+          </div>
+        </section>
+
+        <section class="tiles">
+
+          <article class="tile">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--bucatarie"></span>CAF-005</span>
+              <span class="pill pill--ok">In stoc</span>
+            </div>
+            <h3 class="tile__name">Cafea boabe 1kg</h3>
+            <p class="tile__meta">Bucatarie &middot; 1000 g</p>
+            <div class="tile__price">60 lei</div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+                <span class="qty__value">40 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+            </div>
+            <button class="btn btn--primary btn--block">Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+          <article class="tile">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--accesorii"></span>MOU-002</span>
+              <span class="pill pill--ok">In stoc</span>
+            </div>
+            <h3 class="tile__name">Mouse Wireless</h3>
+            <p class="tile__meta">Accesorii &middot; 95 g</p>
+            <div class="tile__price">90 lei</div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+                <span class="qty__value">25 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+            </div>
+            <button class="btn btn--primary btn--block">Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+          <article class="tile">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--accesorii"></span>CAS-004</span>
+              <span class="pill pill--ok">In stoc</span>
+            </div>
+            <h3 class="tile__name">Casti Studio</h3>
+            <p class="tile__meta">Accesorii &middot; 280 g</p>
+            <div class="tile__price">250 lei</div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+                <span class="qty__value">12 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+            </div>
+            <button class="btn btn--primary btn--block">Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+          <article class="tile tile--muted">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--bucatarie"></span>CEA-006</span>
+              <span class="pill pill--warn">Stoc redus</span>
+            </div>
+            <h3 class="tile__name">Ceainic electric</h3>
+            <p class="tile__meta">Bucatarie &middot; 900 g</p>
+            <div class="tile__price">300 lei</div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+                <span class="qty__value">3 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch"><span class="switch__track"></span>Inactiv</button>
+            </div>
+            <button class="btn btn--primary btn--block" disabled>Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+          <article class="tile">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--calculatoare"></span>MON-003</span>
+              <span class="pill pill--danger">Epuizat</span>
+            </div>
+            <h3 class="tile__name">Monitor 27 inch</h3>
+            <p class="tile__meta">Calculatoare &middot; 4200 g</p>
+            <div class="tile__price">1100 lei <span class="tag">Scump</span></div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul" disabled>&minus;</button>
+                <span class="qty__value">0 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+            </div>
+            <button class="btn btn--primary btn--block" disabled>Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+          <article class="tile">
+            <div class="tile__top">
+              <span class="tile__sku"><span class="swatch swatch--calculatoare"></span>LAP-001</span>
+              <span class="pill pill--warn">Stoc redus</span>
+            </div>
+            <h3 class="tile__name">Laptop Nova 15</h3>
+            <p class="tile__meta">Calculatoare &middot; 1800 g</p>
+            <div class="tile__price">3200 lei <span class="tag">Scump</span></div>
+            <div class="tile__stock">
+              <div class="qty">
+                <button class="qty__btn" aria-label="Scade stocul">&minus;</button>
+                <span class="qty__value">4 <small class="qty__unit">buc</small></span>
+                <button class="qty__btn" aria-label="Creste stocul">+</button>
+              </div>
+              <button class="switch switch--on"><span class="switch__track"></span>Activ</button>
+            </div>
+            <button class="btn btn--primary btn--block">Adauga in cos</button>
+            <div class="tile__actions">
+              <button class="btn btn--ghost btn--small">Editeaza</button>
+              <button class="btn btn--danger btn--small">Sterge</button>
+            </div>
+          </article>
+
+        </section>
+
+        <section class="panel">
+          <h2 class="panel__title">Editare produs</h2>
+          <div class="form">
+            <div class="field">
+              <label class="field__label" for="sku">SKU <span class="field__req">*</span></label>
+              <input id="sku" class="field__input" value="MOU-002" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="name">Produs <span class="field__req">*</span></label>
+              <input id="name" class="field__input" value="Mouse Wireless" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="category">Categorie <span class="field__req">*</span></label>
+              <input id="category" class="field__input" value="Accesorii" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="price">Pret (lei)</label>
+              <input id="price" type="number" class="field__input" value="90" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="weight">Greutate (g)</label>
+              <input id="weight" type="number" class="field__input" value="95" />
+            </div>
+            <div class="field">
+              <label class="field__label" for="stock">Stoc (buc)</label>
+              <input id="stock" type="number" class="field__input" value="25" />
+            </div>
+          </div>
+          <div class="form__actions">
+            <button class="btn btn--ghost">Renunta</button>
+            <button class="btn btn--primary">Salveaza</button>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="cart">
+        <div class="cart__head">
+          <h2 class="cart__title">Colet in pregatire</h2>
+          <span class="cart__count">3 buc</span>
+        </div>
+
+        <ul class="cart__lines">
+          <li class="cart__line">
+            <span class="cart__name">Laptop Nova 15</span>
+            <button class="cart__remove" aria-label="Scoate din cos"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
+            <span class="cart__unit">3200 lei / buc</span>
+            <div class="qty">
+              <button class="qty__btn" aria-label="Scade cantitatea">&minus;</button>
+              <span class="qty__value">1</span>
+              <button class="qty__btn" aria-label="Creste cantitatea">+</button>
+            </div>
+            <span class="cart__subtotal">3200 lei</span>
+          </li>
+          <li class="cart__line">
+            <span class="cart__name">Mouse Wireless</span>
+            <button class="cart__remove" aria-label="Scoate din cos"><svg class="icon" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 4l-8 8" /></svg></button>
+            <span class="cart__unit">90 lei / buc</span>
+            <div class="qty">
+              <button class="qty__btn" aria-label="Scade cantitatea">&minus;</button>
+              <span class="qty__value">2</span>
+              <button class="qty__btn" aria-label="Creste cantitatea">+</button>
+            </div>
+            <span class="cart__subtotal">180 lei</span>
+          </li>
+        </ul>
+
+        <div class="cart__summary">
+          <div class="cart__row"><span>Total bucati</span><span>3</span></div>
+          <div class="cart__row"><span>Subtotal</span><span>3380 lei</span></div>
+          <div class="cart__row cart__row--discount"><span>Reducere 10%</span><span>&minus;338 lei</span></div>
+          <div class="cart__total"><span>Total de plata</span><strong>3042 lei</strong></div>
+        </div>
+
+        <button class="btn btn--primary btn--block">Finalizeaza comanda</button>
+      </aside>
+
+    </div>
+
+    <section class="mock-states">
+      <h2 class="mock-states__title">Stari (apar doar cand e cazul)</h2>
+
+      <section class="panel">
+        <h2 class="panel__title">Produs nou</h2>
+        <div class="form">
+          <div class="field">
+            <label class="field__label" for="new-sku">SKU <span class="field__req">*</span></label>
+            <input id="new-sku" class="field__input" placeholder="ex. MOU-002" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="new-name">Produs <span class="field__req">*</span></label>
+            <input id="new-name" class="field__input" placeholder="ex. Mouse Wireless" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="new-category">Categorie <span class="field__req">*</span></label>
+            <input id="new-category" class="field__input" placeholder="ex. Accesorii" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="new-price">Pret (lei)</label>
+            <input id="new-price" type="number" class="field__input" value="0" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="new-weight">Greutate (g)</label>
+            <input id="new-weight" type="number" class="field__input" value="0" />
+          </div>
+          <div class="field">
+            <label class="field__label" for="new-stock">Stoc (buc)</label>
+            <input id="new-stock" type="number" class="field__input" value="0" />
+          </div>
+        </div>
+        <div class="form__actions">
+          <button class="btn btn--primary" disabled>Salveaza</button>
+        </div>
+      </section>
+
+      <div class="tiles">
+        <div class="empty">
+          <p class="empty__title">Niciun produs</p>
+          <p class="empty__text">Schimba cautarea sau filtrul.</p>
+        </div>
+      </div>
+
+      <div class="mock-stage">
+        <div class="backdrop">
+          <div class="dialog">
+            <h3 class="dialog__title">Stergi produsul?</h3>
+            <p class="dialog__text">Mouse Wireless va fi sters definitiv.</p>
+            <div class="dialog__actions">
+              <button class="btn btn--ghost">Renunta</button>
+              <button class="btn btn--danger">Sterge definitiv</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="cart">
+        <div class="cart__head">
+          <h2 class="cart__title">Colet in pregatire</h2>
+          <span class="cart__count">0 buc</span>
+        </div>
+        <div class="empty">
+          <p class="empty__title">Cosul e gol</p>
+          <p class="empty__text">Adauga produse din catalog.</p>
+        </div>
+      </aside>
+
+    </section>
+
+  </div>
+
+</body>
+</html>
